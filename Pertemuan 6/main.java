@@ -1,5 +1,6 @@
 package Paket;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class main {
@@ -9,27 +10,28 @@ public class main {
         
         
         //SOAL NO 1
-        System.out.println("SOAL NO 1");
-        int[] arr1 = {1,2,3,4};
-        int arr2[] = {1,2,3,4};
-        int[] arr3 = new int[4]; //nge assign 4 slot
-        arr3[0] = 1; arr3[1] = 2; arr3[2] = 5; arr3[3] = 12;
-        show.out(arr1);
-        show.out(arr2);
-        show.out(arr3);
-        System.out.print("\n"); 
+//        System.out.println("SOAL NO 1");
+//        int[] arr1 = {1,2,3,4};
+//        int arr2[] = {1,2,3,4};
+//        int[] arr3 = new int[4]; //nge assign 4 slot
+//        arr3[0] = 1; arr3[1] = 2; arr3[2] = 5; arr3[3] = 12;
+//        show.out(arr1);
+//        show.out(arr2);
+//        show.out(arr3);
+//        System.out.print("\n"); 
         
         
         //SOAL NO 2
-        System.out.println("SOAL NO 2");
-        //diketahui :
-        String[] mobil = {"Tesla", "Suzuki", "Civic", "Mazda", "BMW"};
-        System.out.println("Sebelum di rubah : ");
-        show.out(mobil);
-        System.out.println("Setelah Di Reassign");
-        mobil[1] = "-Suzuki Terjual!-";
-        show.out(mobil);
-        System.out.print("\n"); 
+//        System.out.println("SOAL NO 2");
+//        //diketahui :
+//        String[] mobil = {"Tesla", "Suzuki", "Civic", "Mazda", "BMW"};
+//        System.out.println("Sebelum di rubah : ");
+//        show.out(mobil);
+//        System.out.println("Setelah Di Reassign");
+//        mobil[1] = "-Suzuki Terjual!-";
+//        show.out(mobil);
+//        System.out.print("\n"); 
+        
         
         
         //SOAL NO 3
@@ -46,13 +48,63 @@ public class main {
 //        System.out.print("\n"); 
         
         //SOAL NO 4
-        System.out.println("SOAL NO 4");
-        System.out.println("////////PEROGRAM NILAI MAHASISWA////////");
-        System.out.println("Masukan Banyak Mahasiswa : ");
+//        System.out.println("SOAL NO 4");
+//        System.out.println("////////PEROGRAM NILAI MAHASISWA////////");
+//        System.out.print("Masukan Banyak Mahasiswa : ");
+//        int jmhs = scanner.nextInt();
+//        show.inputMhs(jmhs);
         
+        //SOAL NO 5
+//        int row = 0;
+//        int collumn = 0;
+//        System.out.print("Masukan jumlah Baris   : ");
+//        row = scanner.nextInt();
+//        System.out.print("Masukan Jumlah Collumn : ");
+//        collumn = scanner.nextInt();
+//        show.countMatriks(row, collumn);
+//        
         
+        //SOAL NO 6
+//        int n = 5;
+//        int[] bil = new int[n];
+//        double totala = 0;
+//        try {
+//        System.out.print("Masukan 10 bilangan : ");
+//        for (int i=0; i < n; i++){
+//            bil[i] = scanner.nextInt();
+//            totala = totala + bil[i];
+//            }
+//        System.out.print("Bilangan anda : ");
+//        show.out(bil);
+//        System.out.println("nilai rata rata : " + (totala / n));
+//        } catch (Exception e) {
+//        System.out.println("inputan anda bukan sebuah bilangan");
+//        } finally {
+//            System.out.println("Program berakhir ");
+//        }
         
+        //soal no 9
+        //diketahui :
+        int[] age = {12,4,5,2,6};
+        //yang pertama menggunakan foreach
+        System.out.println("Menggunakan foreach : ");
+        show.out(age);
+        //yang kedua adalah for loop
+        System.out.println("Menggunakan for loop :");
+        for (int i = 0; i < age.length; i++){
+            System.out.print(age[i] + " ");
+        }
         
+        //soal no 10
+        //menggunakan ArrayList
+        System.out.println("\n\nSOAL NO 10");
+        ArrayList<Object> ar = new ArrayList<Object>(); 
+        ar.add(19);
+        ar.add(0.2);
+        ar.add("C");
+        ar.add("Java");
+        ar.add(true);
+        System.out.println("" + ar);
     }
 }
 
@@ -145,5 +197,70 @@ class OperasiArr {
     
   //////////////////////////////////////////////////////////////////////////////
     
+    public void inputMhs(int jmhs){
+        String[] nama = new String[jmhs];
+        int[] nilai = new int[jmhs];
+        boolean[] status = new boolean[jmhs];
+        for (int i = 0; i < jmhs; i++){
+            System.out.println("Data ke -" + (i+1));
+            System.out.print("Masukan Nama : ");
+            nama[i] = scanner.nextLine();
+            System.out.print("Masukan nilai : ");
+            nilai[i] = scanner.nextInt();
+            scanner.nextLine();
+            if (nilai[i] > 50){
+                status[i] = true;
+            }
+        }
+        System.out.println("////////DAFTAR NILAI MAHASISWA//////////");
+        System.out.println("no\t\tnama\tnilai\tstatus");
+        for (int i = 0; i < jmhs; i++){
+            System.out.print((i+1) +"\t\t" + nama[i] + "\t" + nilai[i] +"\t");
+            if (status[i]){
+                System.out.println("Lulus");
+            } else {
+                System.out.println("Tidak lulus");
+            }
+        }
+    }
+    
+//////////////////////////////////////////////////////////////////////////////  
+    public void countMatriks(int row, int collumn){
+        int[][] value1 = new int[row][collumn];
+        int[][] value2 = new int[row][collumn];
+        int[][] jumlah = new int[row][collumn];
+        System.out.println("MATRIKS A");
+        for (int i = 0; i < row; i++){
+            System.out.print("Masukan Nilai baris ke + " + (i+1) +" : ");
+            for (int k = 0; k < collumn; k++){
+                value1[i][k] = scanner.nextInt();
+            }
+            
+        }
+        
+        System.out.println("MATRIKS B");
+            
+        for (int i = 0; i < row; i++){
+            System.out.print("Masukan Nilai baris ke + " + (i+1) +" : ");
+            for (int k = 0; k < collumn; k++){
+                value2[i][k] = scanner.nextInt();
+            }
+        }
+        
+        System.out.println("Hasil Penjmlahan A+B : ");
+        for (int i = 0; i < row; i++){
+            for (int k = 0; k < collumn; k++){
+                jumlah[i][k] = value1[i][k] + value2[i][k];
+            }
+        }
+        
+        for (int[] rowf : jumlah){
+            for (int elemen : rowf ){
+                System.out.print(elemen + " ");
+            }
+            System.out.println("");
+        }
+        
+    }
     
 }
